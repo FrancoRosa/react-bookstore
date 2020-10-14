@@ -5,7 +5,7 @@ import BooksList from './BooksList';
 const App = () => (
   <div>
     <BooksForm />
-    <BooksList />
+    <BooksList books={[]}/>
   </div>
 );
 
