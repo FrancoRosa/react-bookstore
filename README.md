@@ -3,6 +3,9 @@
 > Bookstore build with React & Redux!
 
 Work in progress...
+## Live Demo
+
+https://magic-react-bookstore.herokuapp.com
 
 ## Deploy
 To deploy this project localy, download or clone this repo
