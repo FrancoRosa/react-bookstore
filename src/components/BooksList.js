@@ -1,28 +1,29 @@
 import React from 'react';
 
-const BooksList = (books) => {
-  const tableContent = books.map(book => {(
-    <tr>
-      <td>{book.id}</td>
-      <td>{book.title}</td>
-      <td>{book.category}</td>
-    </tr>
-    );
-  });
+const Book = ({book}) => (
+  <tr>
+    <td>{book.id}</td>
+    <td>{book.title}</td>
+    <td>{book.category}</td>
+  </tr>
+);
 
-  return (
-    <div>
-      <h2>BooksList</h2>
-      <table>
+const BooksList = ({ books }) => (
+  <div>
+    <h2>BooksList</h2>
+    <table>
+      <thead>
         <tr>
           <th>Book ID</th>
           <th>Title</th>
           <th>Category</th>
         </tr>
-        {tableContent}
-      </table>
-    </div>
-  );
-};
+      </thead>
+      <tbody>
+        {books.map(book => (<Book key={book.id} book={book} />))}
+      </tbody>
+    </table>
+  </div>
+);
 
 export default BooksList;
