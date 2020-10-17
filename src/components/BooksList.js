@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Book = ({book}) => (
   <tr>
@@ -7,6 +8,14 @@ const Book = ({book}) => (
     <td>{book.category}</td>
   </tr>
 );
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    category: PropTypes.string,
+  }).isRequired,
+};
 
 const BooksList = ({ books }) => (
   <div>
@@ -20,10 +29,16 @@ const BooksList = ({ books }) => (
         </tr>
       </thead>
       <tbody>
-        {books.map(book => (<Book key={book.id} book={book} />))}
+        {books.map(book => (
+          <Book key={book.id} book={book} />
+        ))}
       </tbody>
     </table>
   </div>
 );
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(Book.propTypes).isRequired,
+};
 
 export default BooksList;

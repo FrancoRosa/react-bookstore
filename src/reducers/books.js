@@ -1,17 +1,12 @@
-import { createStore } from 'redux';
+import { CREATE_BOOK, REMOVE_BOOK } from '../actions/index';
 
-const CREATE_BOOK = 'CREATE_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+export const removeBook = (books, book) => (
+  books.filter(stockbook => stockbook !== book)
+);
 
-const removeBook = (books, book) => {
-  return books.filter(stockbook => stockbook !== book);
-};
+export const createBook = (books, book) => ([...books, book]);
 
-const createBook = (books, book) => {
-  return [...books, book];
-};
-
-const book = (state, action) => {
+export const books = (state, action) => {
   switch (action.type) {
     case CREATE_BOOK:
       return createBook(state, action.book);
@@ -21,7 +16,3 @@ const book = (state, action) => {
       return state;
   }
 };
-
-const bookStore = createStore(book);
-
-export default bookStore;

@@ -1,4 +1,6 @@
 import expect from 'expect';
+import { createBook, removeBook } from './books';
+import { CREATE_BOOK, REMOVE_BOOK } from '../actions/index';
 
 const testRemoveBook = () => {
   const booksBefore = [
@@ -28,7 +30,6 @@ const testRemoveBook = () => {
   };
 
   expect(removeBook(booksBefore, action.book)).toEqual(booksAfter);
-  console.log('test removebook');
 };
 
 const testCreateBook = () => {
@@ -62,10 +63,8 @@ const testCreateBook = () => {
     type: CREATE_BOOK,
   };
 
-  console.log('test createbook');
   expect(createBook(booksBefore, action.book)).toEqual(booksAfter);
 };
 
 testCreateBook();
 testRemoveBook();
-console.log('...All test passed');
