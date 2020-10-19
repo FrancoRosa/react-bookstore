@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../reducers/index';
 
-const Book = ({book}) => (
+const Book = ({ book }) => (
   <tr>
     <td>{book.id}</td>
     <td>{book.title}</td>
