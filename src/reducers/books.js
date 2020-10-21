@@ -1,15 +1,20 @@
 import { CREATE_BOOK, REMOVE_BOOK } from '../actions/index';
 
-const defaultState = [
+const initialState = [
   {
-    id: 10,
-    title: 'This book',
-    category: 'Unkono',
+    id: Math.random(),
+    title: 'A Fiction Book',
+    category: 'Sci-Fi',
   },
   {
-    id: 20,
-    title: 'This other book',
-    category: 'Unkono',
+    id: Math.random(),
+    title: 'Some guy bio',
+    category: 'Biography',
+  },
+  {
+    id: Math.random(),
+    title: 'Watch out, the return',
+    category: 'Horror',
   },
 ];
 
@@ -19,7 +24,7 @@ export const removeBook = (books, book) => (
 
 export const createBook = (books, book) => ([...books, book]);
 
-export const books = (state = defaultState, action) => {
+export const books = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_BOOK:
       return createBook(state, action.book);

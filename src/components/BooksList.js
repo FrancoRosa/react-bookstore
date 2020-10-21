@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
@@ -26,4 +27,8 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(Book.propTypes).isRequired,
 };
 
-export default BooksList;
+const mapStateToProps = state => ({
+  books: state.books,
+});
+
+export default connect(mapStateToProps)(BooksList);

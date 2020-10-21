@@ -16,7 +16,15 @@ class BooksForm extends React.Component {
   }
 
   render() {
-    const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+    const categories = [
+      'Action',
+      'Biography',
+      'History',
+      'Horror',
+      'Kids',
+      'Learning',
+      'Sci-Fi',
+    ];
     return (
       <div>
         <h2>BooksForm</h2>
