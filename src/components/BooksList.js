@@ -1,22 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import store from '../reducers/index';
-
-const Book = ({ book }) => (
-  <tr>
-    <td>{book.id}</td>
-    <td>{book.title}</td>
-    <td>{book.category}</td>
-  </tr>
-);
-
-Book.propTypes = {
-  book: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    category: PropTypes.string,
-  }).isRequired,
-};
+import Book from './Book';
 
 const BooksList = ({ books }) => (
   <div>
