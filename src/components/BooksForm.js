@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BooksForm extends React.Component {
+class BooksForm extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,13 +25,15 @@ class BooksForm extends React.Component {
       'Learning',
       'Sci-Fi',
     ];
+
+    const { input } = this.state;
     return (
       <div>
         <h2>BooksForm</h2>
         <div>
           <label htmlFor="title">
             Title:
-            <input type="text" id="title" value={this.state.input} onChange={this.handleChange} />
+            <input type="text" id="title" value={input} onChange={this.handleChange} />
           </label>
         </div>
         <div>

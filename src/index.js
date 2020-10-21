@@ -5,11 +5,9 @@ import App from './components/App';
 import store from './reducers/index';
 import './style.css';
 
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root'),
 );
-
