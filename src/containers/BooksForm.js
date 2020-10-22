@@ -1,18 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { actionCreate } from '../actions/index';
 
-class BooksForm extends React.PureComponent {
+export class BooksForm extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       input: '',
+      select: 'Action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       input: event.target.value,
     });
+  }
+
+  handleSelect(event) {
+    this.setState({
+      select: event.target.value,
+    });
+  }
+
+  handleSubmit() {
+    const { input, select } = this.state;
+    const book = {
+      title: input,
+      category: select,
+      id: Math.random(),
+    };
+
+    this.setState({
+      input: '',
+      select: 'Action',
+    });
+
+    this.props.submitBook(book);
   }
 
   render() {
@@ -26,7 +54,7 @@ class BooksForm extends React.PureComponent {
       'Sci-Fi',
     ];
 
-    const { input } = this.state;
+    const { input, select } = this.state;
     return (
       <div>
         <h2>BooksForm</h2>
@@ -39,16 +67,27 @@ class BooksForm extends React.PureComponent {
         <div>
           <label htmlFor="categories">
             Category:
-            <select id="categories">
+            <select id="categories" value={select} onChange={this.handleSelect}>
               {categories.map(category => <option key={category.objectID}>{category}</option>)}
             </select>
           </label>
         </div>
         <div>
-          <button type="button">Submit</button>
+          <button type="button" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
     );
   }
 }
-export default BooksForm;
+
+const mapStateToProps = state => ({ books: state });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    submitBook: book => {
+      dispatch(actionCreate(book));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
