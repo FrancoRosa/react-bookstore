@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Book from './Book';
+import Book from '../components/Book';
 
 const BooksList = ({ books }) => (
   <div>
@@ -24,7 +24,13 @@ const BooksList = ({ books }) => (
 );
 
 BooksList.propTypes = {
-  books: PropTypes.arrayOf(Book.propTypes).isRequired,
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      category: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const mapStateToProps = state => ({
