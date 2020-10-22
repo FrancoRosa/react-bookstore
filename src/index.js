@@ -1,14 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import App from './components/App';
+import rootReducer from './reducers/index';
 import './style.css';
 
-const App = () => (
-  <h1>Working React!</h1>
-);
+const initialState = {
+  books: [
+    {
+      id: Math.random(),
+      title: 'A Fiction Book',
+      category: 'Sci-Fi',
+    },
+    {
+      id: Math.random(),
+      title: 'Some guy bio',
+      category: 'Biography',
+    },
+    {
+      id: Math.random(),
+      title: 'Watch out, the return',
+      category: 'Horror',
+    },
+  ],
+};
+
+const store = createStore(rootReducer, initialState);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root'),
 );
+
+export default initialState;
