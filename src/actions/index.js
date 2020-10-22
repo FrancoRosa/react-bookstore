@@ -5,7 +5,8 @@ export const actionRemove = book => (
   {
     book,
     type: REMOVE_BOOK,
-  });
+  }
+);
 
 export const actionCreate = book => (
   {

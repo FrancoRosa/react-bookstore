@@ -29,6 +29,7 @@ export class BooksForm extends React.PureComponent {
 
   handleSubmit() {
     const { input, select } = this.state;
+    const { submitBook } = this.props;
     const book = {
       title: input,
       category: select,
@@ -40,7 +41,7 @@ export class BooksForm extends React.PureComponent {
       select: 'Action',
     });
 
-    this.props.submitBook(book);
+    submitBook(book);
   }
 
   render() {
@@ -80,14 +81,16 @@ export class BooksForm extends React.PureComponent {
   }
 }
 
+BooksForm.propTypes = {
+  submitBook: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({ books: state });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    submitBook: book => {
-      dispatch(actionCreate(book));
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  submitBook: book => {
+    dispatch(actionCreate(book));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
