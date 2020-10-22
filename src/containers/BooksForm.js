@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { actionCreate } from '../actions/index';
 
-export class BooksForm extends React.PureComponent {
+export class BooksForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

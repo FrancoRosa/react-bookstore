@@ -1,5 +1,6 @@
 import React from 'react';
-import { BooksForm } from '../containers/BooksForm';
+// eslint-disable-next-line import/no-named-as-default
+import BooksForm from '../containers/BooksForm';
 import BooksList from '../containers/BooksList';
 
 const App = () => (
