@@ -11,7 +11,7 @@ export const books = (state = [], action) => {
     case CREATE_BOOK:
       return createBook(state, action.book);
     case REMOVE_BOOK:
-      return removeBook(state, action.id);
+      return removeBook(state, action.book);
     default:
       return state;
   }
