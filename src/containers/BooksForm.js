@@ -12,18 +12,13 @@ export class BooksForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleChange(event) {
+    const { tagName, value } = event.target;
+    const field = tagName.toLowerCase();
     this.setState({
-      input: event.target.value,
-    });
-  }
-
-  handleSelect(event) {
-    this.setState({
-      select: event.target.value,
+      [field]: value,
     });
   }
 
@@ -68,7 +63,7 @@ export class BooksForm extends React.Component {
         <div>
           <label htmlFor="categories">
             Category:
-            <select id="categories" value={select} onChange={this.handleSelect}>
+            <select id="categories" value={select} onChange={this.handleChange}>
               {categories.map(category => <option key={category.objectID}>{category}</option>)}
             </select>
           </label>
