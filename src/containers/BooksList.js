@@ -5,7 +5,12 @@ import Book from '../components/Book';
 import CategoryFilter from '../components/CategoryFilter';
 import { actionRemove, actionFilter } from '../actions/index';
 
-const BooksList = ({ books, removeBook, filterBooks }) => {
+const BooksList = ({
+  books,
+  filter,
+  removeBook,
+  filterBooks,
+}) => {
   const handleRemoveBook = book => {
     removeBook(book);
   };
@@ -14,6 +19,13 @@ const BooksList = ({ books, removeBook, filterBooks }) => {
     const filter = event.target.value;
     filterBooks(filter);
   };
+
+  const applyFilter = (books, filter) => {
+    if (filter === 'All') return books;
+    return books.filter(book => filter === book.category);
+  };
+
+  const visibleBooks = applyFilter(books, filter);
 
   return (
     <div>
@@ -29,7 +41,7 @@ const BooksList = ({ books, removeBook, filterBooks }) => {
           </tr>
         </thead>
         <tbody>
-          {books.map(book => (
+          {visibleBooks.map(book => (
             <Book key={book.id} book={book} clickHandler={handleRemoveBook} />
           ))}
         </tbody>
@@ -46,6 +58,7 @@ BooksList.propTypes = {
       category: PropTypes.string,
     }),
   ).isRequired,
+  filter: PropTypes.string.isRequired,
   removeBook: PropTypes.func.isRequired,
   filterBooks: PropTypes.func.isRequired,
 };
