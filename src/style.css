@@ -1,4 +1,22 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-bar {
+  display: flex;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+  align-items: center;
+}
+
+.nav-bar > p {
+  margin: 1em;
+}
+
+.title {
+  color: #0290ff;
+  font-family: Montserrat;
+  font-size: 30px;
 }
