@@ -25,9 +25,11 @@ const initialState = {
       category: 'Horror',
     },
   ],
+  filter: 'All',
 };
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(rootReducer,
+  initialState);
 
 ReactDOM.render(
   <Provider store={store}>
