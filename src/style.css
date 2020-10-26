@@ -20,3 +20,39 @@ body {
   font-family: Montserrat;
   font-size: 30px;
 }
+
+.form-input {
+  display: flex;
+  height: 45px;
+  align-items: center;
+}
+
+.form-input > * {
+  height: 100%;
+  width: 20%;
+}
+
+.m-1 {
+  margin: 0 1em;
+}
+
+.form-input > input {
+  height: 90%;
+  width: 45%;
+}
+
+select:invalid {
+  color: gray;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: black;
+}
+
+.container {
+  width: 90%;
+}
