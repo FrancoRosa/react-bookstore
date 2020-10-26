@@ -2,15 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { actionRemove } from '../actions/index';
+import CategoryFilter from '../components/CategoryFilter';
+import { actionRemove, actionFilter } from '../actions/index';
 
-const BooksList = ({ books, removeBook }) => {
+const BooksList = ({ books, removeBook, filterBooks }) => {
   const handleRemoveBook = book => {
     removeBook(book);
   };
 
+  const handleFilterChange = event => {
+    const filter = event.target.value;
+    filterBooks(filter);
+  };
+
   return (
     <div>
+      <CategoryFilter clickHandler={handleFilterChange} />
       <h2>BooksList</h2>
       <table>
         <thead>
@@ -40,15 +47,21 @@ BooksList.propTypes = {
     }),
   ).isRequired,
   removeBook: PropTypes.func.isRequired,
+  filterBooks: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
   removeBook: book => {
     dispatch(actionRemove(book));
+  },
+
+  filterBooks: filter => {
+    dispatch(actionFilter(filter));
   },
 });
 

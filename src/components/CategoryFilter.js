@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CategoryFilter = () => {
-  const categories = [
+const CategoryFilter = ({ clickHandler }) => {
+  const filter = [
     'All',
     'Action',
     'Biography',
@@ -15,14 +16,18 @@ const CategoryFilter = () => {
   return (
     <div>
       <h2>CategoryFilter</h2>
-      <label htmlFor="categories">
+      <label htmlFor="filter">
         Filter:
-        <select id="filter">
-          {categories.map(category => <option key={category.objectID}>{category}</option>)}
+        <select id="filter" onChange={clickHandler}>
+          {filter.map(category => <option key={category.objectID}>{category}</option>)}
         </select>
       </label>
     </div>
   );
+};
+
+CategoryFilter.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default CategoryFilter;
