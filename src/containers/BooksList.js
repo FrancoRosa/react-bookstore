@@ -30,35 +30,9 @@ const BooksList = ({
   return (
     <div>
       <CategoryFilter clickHandler={handleFilterChange} />
-      <div className="card">
-        <div className="details">
-          <p className="category">History</p>
-          <p className="title">Amazing best seller book</p>
-          <p className="author">Unknown author</p>
-          <p className="actions">
-            <span>Comments</span><span>Remove</span><span>Edit</span>
-          </p>
-        </div>
-        <div className="progress">
-          <div className="image" />
-          <div className="text">
-            <p className="number">0%</p>
-            <p className="status">Unread</p>
-          </div>
-        </div>
-        <div className="chapter">
-          <p className="title">CURRENT CHAPTER</p>
-          <p className="name">Chapter 1</p>
-          <button>UPDATE PROGRESS</button>
-        </div>
-      </div>
-      <table>
-        <tbody>
-          {visibleBooks.map(book => (
-            <Book key={book.id} book={book} clickHandler={handleRemoveBook} />
-          ))}
-        </tbody>
-      </table>
+      {visibleBooks.map(book => (
+        <Book key={book.id} book={book} clickHandler={handleRemoveBook} />
+      ))}
     </div>
   );
 };
