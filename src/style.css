@@ -96,6 +96,7 @@ button {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 50%;
 }
 
 .details > .category {
@@ -127,6 +128,7 @@ button {
 .progress {
   display: flex;
   align-items: center;
+  width: 20%;
 }
 
 .progress > .image {
@@ -148,6 +150,10 @@ button {
 .progress > .text > .status {
   font-size: 14px;
   color: grey;
+}
+
+.chapter {
+  width: 20%;
 }
 
 .chapter > .title {
