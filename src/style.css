@@ -1,0 +1,40 @@
+body {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: 'Roboto Slab', serif;  
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 95px;
+}
+
+nav > .title {
+  color: #0290ff;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+nav > .option {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+nav > p {
+  margin: 0 1em;
+}
+
+nav > .user {
+  color: #0290ff;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  border: 1px solid #e8e8e8;;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
