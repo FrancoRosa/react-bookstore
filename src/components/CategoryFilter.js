@@ -15,13 +15,12 @@ const CategoryFilter = ({ clickHandler }) => {
 
   return (
     <div>
-      <h2>CategoryFilter</h2>
-      <label htmlFor="filter">
-        Filter:
+      <h2>Filter by category</h2>
+      <div>
         <select id="filter" onChange={clickHandler}>
           {filter.map(category => <option key={category.objectID}>{category}</option>)}
         </select>
-      </label>
+      </div>
     </div>
   );
 };

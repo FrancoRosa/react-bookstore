@@ -52,16 +52,16 @@ export class BooksForm extends React.Component {
 
     const { input, select } = this.state;
     return (
-      <div className="m-1 container">
+      <div>
         <hr />
-        <h2 className="m-1">Add new book</h2>
-        <div className="form-input m-1">
-          <input  className="m-1" placeholder="Book title" type="text" id="title" value={input} onChange={this.handleChange} />
-          <select  className="m-1" id="categories" value={select} onChange={this.handleChange}>
+        <h2>Add new book</h2>
+        <div>
+          <input placeholder="Book title" type="text" id="title" value={input} onChange={this.handleChange} />
+          <select id="categories" value={select} onChange={this.handleChange}>
             <option value="" disabled selected>Category</option>
             {categories.map(category => <option key={category.objectID}>{category}</option>)}
           </select>
-          <button className="m-1" type="button" onClick={this.handleSubmit}>Submit</button>
+          <button type="button" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
     );
