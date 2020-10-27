@@ -38,3 +38,15 @@ nav > .user {
   justify-content: center;
   margin-left: auto;
 }
+
+.filter {
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #888;
+}
+
+.filter > * {
+  font-size: 20px;
+  margin: 1em 1.5em;
+}
