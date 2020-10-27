@@ -15,7 +15,7 @@ const CategoryFilter = ({ clickHandler }) => {
 
   return (
     <div className="filter">
-      <h2>FILTER BY CATEGORY</h2>
+      <h2>CATEGORY</h2>
       <div>
         <select id="filter" onChange={clickHandler}>
           {filter.map(category => <option key={category.objectID}>{category}</option>)}

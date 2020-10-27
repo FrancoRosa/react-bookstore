@@ -1,6 +1,6 @@
 body {
   background-color: rgba(0, 0, 0, 0.05);
-  font-family: 'Roboto Slab', serif;  
+  font-family: 'Roboto Slab', serif;
 }
 
 nav {
@@ -49,6 +49,24 @@ nav > .user {
 .filter > * {
   font-size: 20px;
   margin: 1em 1.5em;
+}
+
+input,
+select {
+  font-size: 16px;
+  border-radius: 5px;
+  border: solid 1px grey;
+  color: grey;
+  padding: 0 1em;
+  background-color: #fff;
+}
+
+#filter {
+  height: 45px;
+}
+
+button {
+  font-family: 'Roboto Slab', serif;
 }
 
 .actions > button {
@@ -129,7 +147,7 @@ nav > .user {
 
 .progress > .text > .status {
   font-size: 14px;
-  color: grey
+  color: grey;
 }
 
 .chapter > .title {
@@ -165,7 +183,7 @@ nav > .user {
 
 .form > h2 {
   font-size: 20px;
-  margin: 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 
 .form > .input {
@@ -176,7 +194,6 @@ nav > .user {
 
 .form > .input > * {
   height: 45px;
-  padding: 0;
 }
 
 .form > .input > button {
@@ -189,16 +206,10 @@ nav > .user {
   font-weight: 600;
 }
 
-input,
-select {
-  font-size: 16px;
-  border-radius: 5px;
-  border: solid 1px grey;
-  color: grey;
-  padding: 0 1em;
-  background-color: #fff;
+.input > input {
+  width: 50%;
 }
 
-button {
-  font-family: 'Roboto Slab', serif;  
+.input > select {
+  width: 20%;
 }
