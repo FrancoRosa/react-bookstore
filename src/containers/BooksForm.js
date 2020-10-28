@@ -8,7 +8,7 @@ export class BooksForm extends React.Component {
     super(props);
     this.state = {
       input: '',
-      select: 'Action',
+      select: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,7 +33,7 @@ export class BooksForm extends React.Component {
 
     this.setState({
       input: '',
-      select: 'Action',
+      select: '',
     });
 
     submitBook(book);
@@ -52,24 +52,15 @@ export class BooksForm extends React.Component {
 
     const { input, select } = this.state;
     return (
-      <div>
-        <h2>BooksForm</h2>
-        <div>
-          <label htmlFor="title">
-            Title:
-            <input type="text" id="title" value={input} onChange={this.handleChange} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="categories">
-            Category:
-            <select id="categories" value={select} onChange={this.handleChange}>
-              {categories.map(category => <option key={category.objectID}>{category}</option>)}
-            </select>
-          </label>
-        </div>
-        <div>
-          <button type="button" onClick={this.handleSubmit}>Submit</button>
+      <div className="form">
+        <h2>ADD NEW BOOK</h2>
+        <div className="input">
+          <input placeholder="Book title" type="text" id="title" value={input} onChange={this.handleChange} />
+          <select id="categories" value={select} onChange={this.handleChange}>
+            <option value="" disabled selected>Category</option>
+            {categories.map(category => <option key={category.objectID}>{category}</option>)}
+          </select>
+          <button type="button" onClick={this.handleSubmit}>ADD BOOK</button>
         </div>
       </div>
     );

@@ -30,22 +30,9 @@ const BooksList = ({
   return (
     <div>
       <CategoryFilter clickHandler={handleFilterChange} />
-      <h2>BooksList</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {visibleBooks.map(book => (
-            <Book key={book.id} book={book} clickHandler={handleRemoveBook} />
-          ))}
-        </tbody>
-      </table>
+      {visibleBooks.map(book => (
+        <Book key={book.id} book={book} clickHandler={handleRemoveBook} />
+      ))}
     </div>
   );
 };
